@@ -1,0 +1,19 @@
+
+
+## python3 -m venv .
+esto nos crea un entorno virtual puedes usar pipenv
+
+## source bin/activate  
+para activar nuestro entorno en linux
+
+## .\scripts\activate 
+para activarlo en windows
+
+## pip install -r requirements.txt
+
+
+1. Connect our database with Drivers Python -> https://accounts.datastax.com/session-service/v1/login
+
+docs data -> https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbmN2Y3BHaTZTRTNfOGl1SWJVaU5JVWYtdFlOUXxBQ3Jtc0tuZlRnN0tzQURDRGFZcUU0LUI2TGo0ZjMtZENONEZRa3ZudThYM2pfUHVpbWk5NjU0QXhpLUd4RU5IUFF0Tm9LS1NxRl9IN0trZnhYQ2VudWhKRXBsS2hsWmVDeGJmTlBNY0xFeEVObWR6dHdDTndraw&q=https%3A%2F%2Fdocs.datastax.com%2Fen%2Fdeveloper%2Fpython-driver%2F&v=NyDT3KkscSk
+
+https://docs.datastax.com/en/developer/python-driver/3.25/api/cassandra/cqlengine/models/
