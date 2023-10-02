@@ -6,14 +6,17 @@ from cassandra.cluster import Cluster
 from cassandra.auth import PlainTextAuthProvider
 from cassandra.cqlengine.connection import register_connection, set_default_connection
 
+from . import (config)
+
+settings = config.get_setting()
+
 BASE_DIR = pathlib.Path(__file__).parent
 CLUSTER_BUNDLE = str(BASE_DIR / "ignore" / "connect.zip")
 
 load_dotenv()
 
-
-CLIENT_ID = os.environ.get("clientId")
-CLIENT_SECRET = os.environ.get("secret")
+CLIENT_ID = settings.db_client_id
+CLIENT_SECRET = settings.db_client_secret
 
 def get_cluster():
     cloud_config= {

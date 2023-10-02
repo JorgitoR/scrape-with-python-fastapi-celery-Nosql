@@ -12,7 +12,9 @@ class Product(Model):
     __keyspace__ = 'scraper_app'
     asin = columns.Text(primary_key=True, required=True)
     title = columns.Text()
+    brand = columns.Text()
     price_str = columns.Text(default="-1")
+    country_of_origin = columns.Text()
 
 
 class ProducScrapeEvent(Model):
@@ -20,4 +22,6 @@ class ProducScrapeEvent(Model):
     uuid = columns.UUID(primary_key=True)
     asin = columns.Text(index=True)
     title = columns.Text()
+    brand = columns.Text()
+    country_of_origin = columns.Text()
     price_str = columns.Text(default="-1")

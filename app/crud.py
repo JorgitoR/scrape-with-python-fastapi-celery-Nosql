@@ -1,13 +1,7 @@
 import copy
 import uuid
 
-from cassandra.cqlengine.management import sync_table
 from .models import Product, ProducScrapeEvent
-from .db import get_session
-
-session = get_session()
-sync_table(Product)
-sync_table(ProducScrapeEvent)
 
 def create_entry(data:dict):
     return Product.create(**data) # unpack the data
