@@ -1,4 +1,5 @@
 from celery import Celery
+from celery.schedules import crontab
 from celery.signals import ( # <- for schedule taks
     beat_init,
     worker_process_init
@@ -22,6 +23,12 @@ celery_app.conf.result_backend = REDIS_URL
 
 Product = models.Product
 ProducScrapeEvent = models.ProducScrapeEvent
+
+
+@celery_app.on_after_configure.connect
+def setup_periopdic_tasks(sender, *args, **kwargs):
+    sender.add_periodic_task(1, random_task.s("hello"), expires=10)
+
 
 def celery_on_startup(*args, **kwargs):
     if connection.cluster is not None:
@@ -53,5 +60,11 @@ def list_products():
 
 """
 celery --app app.worker.celery_app worker --loglevel INFO
+
+celery --app app.worker.celery_app beat
+celery --app app.worker.celery_app worker --beat
+celery --app app.worker.celery_app worker --beat -s celerybeat-schedule --loglevel INFO
+
+celery --app app.worker.celery_app beat --loglevel INFO
 
 """
