@@ -9,6 +9,7 @@ class Settings(BaseSettings):
     name: str = Field(..., env='PROJ_NAME')
     db_client_id: str = Field(..., env='clientId')
     db_client_secret: str = Field(..., env='secret')
+    redis_url: str = Field(..., env='REDIS_URL')
 
     class Config:
         env_file = '.env'
